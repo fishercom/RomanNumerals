@@ -29,14 +29,10 @@ namespace RomanNumerals.Application
         {
             int result = 0; //initialize result
             string numeral = input.ToUpper(); //convert to upper cases
-            var match = Regex.Match(numeral, "^[MDCLXVI]+$", RegexOptions.IgnoreCase); //validate format roman numeral
-
-            if (numeral.Equals("")){ //empty return 0
-                return 0;
-            }
+            var match = Regex.Match(numeral, "^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"); //validate format roman numeral
 
             if (!match.Success) { // trow exception if is bad format
-                throw new Exception("Invalid Format");
+                throw new Exception("Invalid Format input");
             } 
 
             while (numeral.Length != 0) //looping numeral

@@ -30,10 +30,14 @@ namespace RomanNumerals.Test
         }
 
         [Fact]
-        public void Result_Throw_Exception()
+        public void Result_Invalid_Format_Numeral()
         {
-            //Exception ex = Assert.Throws<Exception>(() => roman.ToInteger("53534asd"));
-            //Assert.Equal("Invalid Format", ex.Message);
+            Assert.Throws<Exception>(() => roman.ToInteger("IIXCDMLX"));
+        }
+
+        [Fact]
+        public void Result_Invalid_Format_Input()
+        {
             Assert.Throws<Exception>(() => roman.ToInteger("53534asd"));
         }
 
